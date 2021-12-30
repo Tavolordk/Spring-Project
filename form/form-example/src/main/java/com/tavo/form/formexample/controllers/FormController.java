@@ -1,8 +1,5 @@
 package com.tavo.form.formexample.controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.validation.Valid;
 
 import com.tavo.form.formexample.models.domain.Usuario;
@@ -12,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
+@SessionAttributes("usuario")
 public class FormController {
 
     @GetMapping("/form")
@@ -44,7 +44,7 @@ public class FormController {
      * usuario.setPassword(password);
      * usuario.setEmail(email);
      */
-    public String procesar(@Valid Usuario usuario, BindingResult result,Model model) {
+    public String procesar(@Valid Usuario usuario, BindingResult result,Model model, SessionStatus sessionStatus) {
 
         model.addAttribute("titulo", "Resultado del formulario");
 
@@ -58,8 +58,11 @@ public class FormController {
             return "form";
         }
 
+        /**Session status mantiene los datos que no aparecen en el formulario pero ya están contenidos en la
+         * clase
+         */
         model.addAttribute("usuario", usuario);
-
+        sessionStatus.setComplete();
         return "resultado";
     }
 }
