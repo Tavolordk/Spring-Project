@@ -2,17 +2,36 @@ package com.tavo.form.formexample.models.domain;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class Usuario {
 
-    @NotEmpty
+    @Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    @NotEmpty()
+    private String nombre;
+
+    @NotEmpty()
+    private String apellido;
+
+    @NotEmpty()
+    @Size(min = 8)
     private String username;
     
-    @NotEmpty
+    @NotEmpty()
+    @Size(min = 8)
     private String password;
     
-    @Email
-    @NotEmpty
+    @NotEmpty()
+    @Email()
     private String email;
     
     public String getUsername() {
@@ -32,6 +51,18 @@ public class Usuario {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getApellido() {
+        return apellido;
+    }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     
