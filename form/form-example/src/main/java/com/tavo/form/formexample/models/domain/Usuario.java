@@ -1,8 +1,18 @@
 package com.tavo.form.formexample.models.domain;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 public class Usuario {
+
+    @NotEmpty
     private String username;
+    
+    @NotEmpty
     private String password;
+    
+    @Email
+    @NotEmpty
     private String email;
     
     public String getUsername() {
