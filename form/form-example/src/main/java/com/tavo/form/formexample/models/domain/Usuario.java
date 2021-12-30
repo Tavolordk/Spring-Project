@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.tavo.form.formexample.validation.IdentificadorRegex;
+import com.tavo.form.formexample.validation.Requerido;
 
 public class Usuario {
 
@@ -21,7 +22,8 @@ public class Usuario {
     //@NotEmpty()
     private String nombre;
 
-    @NotBlank()
+    //@NotBlank()
+    @Requerido
     private String apellido;
 
     @NotBlank()
