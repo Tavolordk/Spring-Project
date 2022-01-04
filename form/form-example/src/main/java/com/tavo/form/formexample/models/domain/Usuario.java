@@ -1,7 +1,12 @@
 package com.tavo.form.formexample.models.domain;
 
+import java.util.Date;
+
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.tavo.form.formexample.validation.IdentificadorRegex;
@@ -9,16 +14,18 @@ import com.tavo.form.formexample.validation.Requerido;
 
 public class Usuario {
 
+    @NotNull
+    private Date fecha;
+
+    @NotNull
+    @Min(10)
+    @Max(16)
+    private Integer cuenta;
+
     //@Pattern(regexp = "[0-9]{2}[.][\\d]{3}[.][\\d]{3}[-][A-Z]{1}")
     @IdentificadorRegex
     private String id;
 
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
     //@NotEmpty()
     private String nombre;
 
@@ -38,6 +45,12 @@ public class Usuario {
     @Email()
     private String email;
     
+    public Integer getCuenta() {
+        return cuenta;
+    }
+    public void setCuenta(Integer cuenta) {
+        this.cuenta = cuenta;
+    }
     public String getUsername() {
         return username;
     }
@@ -69,5 +82,17 @@ public class Usuario {
         this.apellido = apellido;
     }
 
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public Date getFecha() {
+        return fecha;
+    }
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     
 }

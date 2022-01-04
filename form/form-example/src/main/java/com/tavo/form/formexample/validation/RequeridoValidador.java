@@ -14,7 +14,7 @@ public class RequeridoValidador implements ConstraintValidator<Requerido,String>
         } primera forma sin usar utileria de spring*/
 
         if(value.equals(null) || !StringUtils.hasText(value)){
-            
+            return false;
         }
         return true;
     }
