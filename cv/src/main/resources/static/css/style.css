@@ -1,0 +1,12 @@
+.bg1{
+    background-image: linear-gradient(225deg, #39372b 0, #00020a 50%, #000000 100%);
+}
+
+.bg1 p{
+    font-style: italic;
+}
+
+.txt-slide-one{
+    font-style: italic;
+    font-family: 'Source Sans Pro';
+}
