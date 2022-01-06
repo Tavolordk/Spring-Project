@@ -1,0 +1,60 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.texto-justificado{
+    text-align: justify;
+}
+
+.bg1{
+    background-color: #59969e;
+}
+.border-personalizado{
+    border: #000000 5px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-style: outset;
+}
+
+.efecto1{
+  font-family: 'Raleway', sans-serif;
+  font-size:1em;
+  margin:0;
+  text-transform:uppercase;
+  color:transparent;
+  text-shadow:0 0 10px orange;
+  text-align:center;
+  letter-spacing:2px;
+  animation-name: focus;
+  animation-duration: 2s;
+  animation-iteration-count:infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes focus {
+  0% {
+    text-shadow:0 0 30px #547C77, 0 20px 50px darken(#547C77,30%);
+    letter-spacing:30px;
+  }
+  50% {
+    text-shadow:0 0 0 #547C77;
+    font-size:1em;
+    letter-spacing:2px;
+  }
+  75% {
+    text-shadow:0 0 0 #547C77;
+    font-size:1em;
+    letter-spacing:2px;
+  }
+  100% {
+    text-shadow:0 0 0 #547C77;
+    font-size:1em;
+    letter-spacing:2px;
+  }
+}
+
+

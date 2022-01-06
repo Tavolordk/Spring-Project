@@ -10,3 +10,138 @@
     font-style: italic;
     font-family: 'Source Sans Pro';
 }
+
+.neon {
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.text {
+    background-color: black;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    user-select: none;
+}
+
+.text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+}
+
+.gradient {
+    position: absolute;
+    background: linear-gradient(45deg, red, gold, lightgreen, gold, red);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+}
+
+.spotlight {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(
+            circle,
+            white,
+            transparent 25%
+        ) center / 25% 25%,
+        radial-gradient(
+            circle,
+            white,
+            black 25%
+        ) center / 12.5% 12.5%;
+    animation: light 5s linear infinite;
+    mix-blend-mode: color-dodge;
+}
+
+@keyframes light {
+    to {
+        transform: translate(50%, 50%);
+    }
+}
+
+.h1-efect {
+    margin: 0;
+    height: 12vmin;
+    width: 120vmin;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .h1-efect::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: -26vmin;
+    left: 29vmin;
+    width: 62vmin;
+    height: 62vmin;
+    border-radius: 50%;
+    border: 1.3vmin solid currentColor;
+    box-sizing: border-box;
+  }
+  
+  em {
+    font-family: 'Josefin Sans', sans-serif;
+    color: currentColor;
+    font-size: 10vmin;
+    position: relative;
+    font-style: normal;
+    width: 20vmin;
+    text-align: center;
+  }
+  
+  em.planet {
+    -webkit-animation: planet-rotate 4s linear infinite;
+    animation: planet-rotate 4s linear infinite;
+    position: relative;
+  }
+  
+  em.planet::before {
+    content: "";
+    position: absolute;
+    top: -.5vmin;
+    left: 3.5vmin;
+    z-index: -1;
+    width: 13vmin;
+    height: 13vmin;
+    border-radius: 50%;
+    background: black;
+  }
+  
+  em.planet.left {
+    -webkit-transform-origin: 40vmin 5vmin;
+    transform-origin: 40vmin 5vmin;
+  }
+  
+  em.planet.right {
+    -webkit-transform-origin: -20vmin 5vmin;
+    transform-origin: -20vmin 5vmin;
+  }
+  
+  @-webkit-keyframes planet-rotate {
+    to {
+      -webkit-transform: rotate(1turn);
+    }
+  }
+  
+  @keyframes planet-rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
